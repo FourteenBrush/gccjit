@@ -1,0 +1,26 @@
+digraph loop_test {
+	block_0 [shape=record,style=filled,fillcolor=white,label="{entry:\l\
+sum\ =\ (int)0;\l\
+i\ =\ (int)0;\l\
+goto\ loop.cond;\l\
+}"];
+
+	block_1 [shape=record,style=filled,fillcolor=white,label="{loop.cond:\l\
+if\ (i\ \<\ n)\ goto\ loop.body;\ else\ goto\ loop.done;\l\
+}"];
+
+	block_2 [shape=record,style=filled,fillcolor=white,label="{loop.body:\l\
+sum\ +=\ i\ *\ i;\l\
+i\ +=\ (int)1;\l\
+goto\ loop.cond;\l\
+}"];
+
+	block_3 [shape=record,style=filled,fillcolor=white,label="{loop.done:\l\
+return\ sum;\l\
+}"];
+
+	block_0:s -> block_1:n;
+	block_1:s -> block_2:n;
+	block_1:s -> block_3:n;
+	block_2:s -> block_1:n;
+}
