@@ -5,7 +5,7 @@ import "base:runtime"
 import "core:strings"
 
 when ODIN_OS == .Windows {
-    foreign import gccjit "gccjit.lib"
+    foreign import gccjit "lib/gccjit.lib"
 } else {
     foreign import gccjit "system:gccjit"
 }
